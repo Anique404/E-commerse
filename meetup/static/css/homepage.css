@@ -1,0 +1,69 @@
+.work {
+  display: flex; 
+  flex-wrap: wrap; /* Allows wrapping of cards */
+  justify-content: space-between; /* Space between cards */
+  margin-top: 50px;
+  margin-bottom: 50px;
+  
+  gap:10px;
+}
+
+.card {
+  width: calc(25% - 20px); /* Adjust width to allow 4 cards per row */
+  margin-bottom: 30px; /* Space below each card */
+  box-shadow: 3px 3px 3px rgba(1, 1, 1, 1.1);
+  transition: transform 0.3s ease; /* Smooth transition */
+  display: flex; /* Make card a flex container */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.cardcontent {
+  text-align: center; /* Center text inside the card content */
+}
+
+.work p {
+  color: red; /* Set price color to red */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px); /* 2 cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: calc(100% - 20px); /* 1 card per row on very small screens */
+  }
+}
+
+
+.pagination {
+  margin: 20px 0; /* Adjust margin as needed */
+}
+.pagination li {
+  margin: 0 3px; /* Adjust spacing between pagination items */
+}
+
+
+
+.add button {
+  background-color: black;
+  color: aliceblue;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add button:hover {
+  background-color: #555;
+}

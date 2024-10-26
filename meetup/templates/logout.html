@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Out Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif; /* Font style */
+            background-color: #f2f2f2; /* Light gray background */
+        }
+
+        .container {
+            text-align: center; /* Center text */
+            background-color: white; /* White background for the box */
+            padding: 20px; /* Padding inside the box */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Space below the heading */
+            color: #333; /* Dark gray color for heading */
+        }
+
+        button {
+            padding: 10px 20px; /* Padding for buttons */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s; /* Smooth background color transition */
+        }
+
+        button[type="submit"] {
+            background-color: #28a745; /* Green color for 'Yes' button */
+            color: white; /* White text */
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        button[type="button"] {
+            background-color: #dc3545; /* Red color for 'No' button */
+            color: white; /* White text */
+            margin-left: 10px; /* Space between buttons */
+        }
+
+        button[type="button"]:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <h1>Are you sure you want to logout?</h1>
+            <button type="submit">Yes</button>
+            <a href="{% url 'homepage' %}"><button type="button">No</button></a>
+        </form>
+    </div>
+</body>
+</html>

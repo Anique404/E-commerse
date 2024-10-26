@@ -1,0 +1,365 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/homepage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .head {
+            height: 50px;
+            background-color: black;
+            color: white; /* Text color for header */
+            display: flex;
+            justify-content: space-between; /* Space between logo and links */
+            align-items: center;
+            padding: 0 20px; /* Padding for header content */
+            margin-bottom: 0px;
+        }
+
+        .social-links {
+            margin-left: 1400px;
+            display: flex;
+            gap: 15px; /* Space between social links */
+        }
+
+        .social-links a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+            font-size: 20px; /* Size of the icons */
+        }
+
+        .social-links a:hover {
+            opacity: 0.8; /* Slight transparency on hover */
+        }
+
+        .upper {
+            height: 80px;
+            background-color: white;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 0 20px; /* Padding for upper section */
+            justify-content: space-between; /* Space between elements */
+        }
+
+        .upper img {
+            border-radius: 50%;
+            max-width: 70px; /* Responsive image */
+            height: 70px; /* Maintain aspect ratio */
+            margin-right: 0px; /* Space between image and dropdown */
+        }
+
+        main.container {
+            padding: 20px; /* Padding for main content */
+        }
+        .dropdown {
+             /* Position relative for dropdown */
+            margin:20px;
+        }
+        .dropdown a{
+            color:black;
+        }
+        
+        .dropdown-content {
+            margin-top:25px;
+            display: none; /* Hide dropdown by default */
+            position: absolute; /* Position it absolutely */
+            background-color: black; /* Background color for dropdown */
+            color: white; /* Text color */
+            padding: 20px; /* Padding around the content */
+            z-index: 1; /* Ensure it appears on top */
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block; /* Show dropdown on hover */
+        }
+        .dropdown-content h5{
+            color: white;
+        }
+        .dropdown-content a h5:hover{
+            color: blue;
+        }
+        
+        .acs {
+            background-color: black;
+            color: white;
+            display: flex;
+            padding: 20px; /* Add padding for spacing */
+            gap: 20px; /* Space between columns */
+        }
+
+        .acs div {
+            min-width: 200px; /* Set a minimum width for each column */
+        }
+
+        h5 {
+            margin: 5px 0; /* Add margin between headings */
+        }
+
+        hr {
+            border: 1px solid white; /* Change line color */
+            margin: 10px 0; /* Margin for the line */
+        }
+
+        .sales{
+            margin-right: 600px;
+
+        }
+
+        .sales a{
+            color:blue;
+        }
+        .sales a:hover{
+            color:red;
+        }
+
+        .search {
+            display: flex; /* Use flexbox for search input */
+            align-items: center; /* Center items vertically */
+            margin-right: 20px; /* Space between search and logout button */
+        }
+
+        .search input {
+            padding: 6px;
+            font-size: 16px;
+            border: 1px solid #ccc; /* Border for input */
+            border-radius: 10px; /* Rounded corners */
+            width: 200px; /* Width of input */
+        }
+
+        .search button {
+            padding: 9px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 10px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            margin-left: 0px; /* Space between input and button */
+        }
+
+        .search button:hover {
+            background-color: red; /* Change button color on hover */
+        }
+
+        .btt {
+            color: white;
+            background-color: blue;
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Padding for button */
+            border-radius: 10px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Font size for button */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        .btt:hover {
+            background-color: red; /* Darker shade on hover */
+        }
+
+        .upperlower {
+            display: flex;
+            justify-content: center; /* Center align items */
+            align-items: center; /* Center vertically */
+            background-color: black;
+            color: white;
+            padding: 10px 0; /* Add some padding for spacing */
+            gap: 120px; /* Space between items */
+        }
+        
+        .upperlower h5 {
+            margin: 0; /* Remove default margin */
+            cursor: pointer; /* Change cursor on hover */
+            transition: color 0.3s; /* Smooth color change on hover */
+            color:white;
+        }
+        
+        .upperlower h5:hover {
+            color: blue; /* Change color on hover */
+        }
+
+
+        .foot {
+            height: 250px;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            flex-direction: column; /* Stack elements vertically */
+            padding: 20px; /* Padding for footer content */
+        }
+
+        
+
+        .foot img {
+            border-radius: 50%;
+            max-width: 80px; /* Responsive image */
+            height: 80px; /* Maintain aspect ratio */
+            margin-bottom: 10px; /* Space below the image */
+        }
+
+        .link {
+            display: flex;
+            flex-direction: row; /* Stack links vertically */
+            align-items: center; /* Center the links */
+            gap: 80px;
+            color:white;
+        }
+
+        .link h3 {
+            margin: 5px 0; /* Space between links */
+            
+        }
+        .link h3:hover{
+            color:white;
+        }
+
+        
+        
+        .add button.added {
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: not-allowed;
+        }
+        
+        .add button.added:hover {
+            background-color: darkgreen;
+        }
+        
+        
+
+        
+        
+    </style>
+</head>
+<body>
+
+<header class="head">
+    <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com" target="_blank">
+            <i class="fab fa-tiktok"></i>
+        </a>
+    </div>
+</header>
+
+<div class="upper">
+    <img src="{% static '1600w-oqe3ybeEcQQ.webp' %}" alt="A scenic view" />
+
+    <div class="dropdown">
+        <a href="#" class="active dropdown_link">
+            Accessories 
+            <span class="fas fa-chevron-down"></span>
+        </a>
+        <div class="dropdown-content">
+            <div class="acs">
+                <div>
+                    <h5>Grips & Supports</h5>
+                    <hr>
+                    <a href=""><h5>Gloves</h5></a>
+                    <a href=""><h5>Hand Grips</h5></a>
+                    <a href=""><h5>Fat Grips</h5></a>
+                    <a href=""><h5>Wrist Wrap</h5></a>
+                </div>
+                <div>
+                    <h5>Athelete Essentials</h5>
+                    <hr>
+                    <a href=""><h5>Bottle</h5></a>
+                    <a href=""><h5>Gym Towel</h5></a>
+                    <a href=""><h5>Run Vest</h5></a>
+                    <a href=""><h5>Foam Roller</h5></a>
+                </div>
+                <div>
+                    <h5>Lifting Belts</h5>
+                    <hr>
+                    <a href=""><h5>Anime Belts</h5></a>
+                    <a href=""><h5>Leather Belts</h5></a>
+                    <a href=""><h5>Soft Locking Belts</h5></a>
+                    <a href=""><h5>Dip Belts</h5></a>
+                </div>
+                <div>
+                    <h5>Boxing</h5>
+                    <hr>
+                    <a href=""><h5>Boxing Gloves</h5></a>
+                    <a href=""><h5>Mouth Guard</h5></a>
+                    <a href=""><h5>Hand Wrap</h5></a>
+                    <a href=""><h5>Punching Bag</h5></a>
+                </div>
+                <div>
+                    <h5>Conditioning</h5>
+                    <hr>
+                    <a href=""><h5>Sand Bag</h5></a>
+                    <a href=""><h5>Wall Ball</h5></a>
+                    <a href=""><h5>Yoga Mat</h5></a>
+                    <a href=""><h5>Push Up Bar</h5></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="sales">
+        <a href=""><h5>50% Off</h5></a>
+    </div>
+
+    <div class="search">
+        <form method="GET" action="{% url 'homepage' %}">
+            <input type="text" name="appname" placeholder="Search.." required>
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+
+ <nav>
+    <ul>
+        <li>
+            <a href="{% url 'cart' %}" aria-label="view_cart">
+                <i class="fas fa-shopping-cart" title="Cart"></i>
+                (<span class="cart_count">{{ cart_count }}</span>)
+            </a>
+        </li>
+    </ul>
+</nav>
+
+    
+
+    
+    <form method="GET" action="{% url 'logout' %}">
+        <button type="submit" class="btt">Log Out</button>
+    </form>
+
+    
+</div>
+
+<div class="upperlower">
+    <a href=""><h5>Home</h5></a>  
+    <a href=""><h5>Men</h5></a>
+    <a href=""><h5>Women</h5></a>
+    <a href=""><h5>Bags</h5></a>
+    <a href=""><h5>Sports</h5></a>
+    
+
+
+</div>
+
+
+     
